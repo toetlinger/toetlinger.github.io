@@ -76,7 +76,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
     // event listener for codeword submit
     document.querySelector('#submit').addEventListener("click", checkCodeWord);
-
+    document.querySelector('#codeword').addEventListener("change", checkCodeWord);
 
     // event listeners for clues nav buttons
     document.querySelector('#left-btn').addEventListener("click", scrollLeft);

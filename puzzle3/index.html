@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang='en'>
+    <head>
+        <meta charset='utf-8'>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Puzzle Box</title>
+        <script src='static/game.js'></script>
+        <link rel='stylesheet' href='static/style.css'>
+    </head>
+    <body>
+        <div class='code'>
+            <label for="codeword">Code Word:</label><br>
+            <input type="text" id="codeword" name="codeword" value=""><br><br>
+            <input type="submit" id='submit' value="Enter">
+       </div>
+        <div class='wrapper'>
+        <div class="topnav">
+            <a class="active" href="#clues">Clues</a>
+            <a href="#p1" id='nav-btn1'>Puzzle 1</a>
+            <a href="#p2" id='nav-btn2'>Puzzle 2</a>
+            <a href="#p3" id='nav-btn3'>Puzzle 3</a>
+            <!--<a href="#p4" id='nav-btn4'>Puzzle 4</a>-->
+            <a href="#p5" id='nav-btn5'>Puzzle 4</a>
+            <a href="#p6" id='nav-btn6'>Puzzle 5</a>
+            <!--<a href="#p7" id='nav-btn7'>Puzzle 7</a>-->
+            <a href="#p8" id='nav-btn8'>Puzzle 6</a>
+            <!--<a href="#p9" id='nav-btn9'>Puzzle 9</a>--> 
+            <span id='congratulations'>CONGRATULATIONS! You solved all of the puzzles!</span>
+        </div>
+
+        <div id='clues'></div>
+        <div class='container clues-container'>
+            
+            <div class='nav-button' id='left-btn'>&#60</div>
+            <div class ='clue-img'>
+                <img id='clue-img' src='static/images/1.png'>
+            </div>
+            <div class='nav-button' id='right-btn'>&#62</div>
+        </div> 
+        <div id='p1'></div>
+        <br><br>>
+        <hr>
+
+        <div id='puzzle1'></div>
+        <div class='container image-container'>
+            <img id='p1-answer' src='static/images/4x4green.png'>
+            <img id='p1-box' src="static/sprites/box_closed.png">
+        </div>
+        <div class='container button-container'>
+            <div class='p1-flex-container'>
+                <div class='button' id='p1-btn0'>0</div>
+                <div class='button' id='p1-btn1'>0</div>
+                <div class='button' id='p1-btn2'>0</div>
+                <div class='button' id='p1-btn3'>0</div>
+                <div class='enter-button' id='p1-btnE'>E</div>
+            </div>
+
+        </div>
+        <div id='p2'></div>
+        <br><br>>
+        <hr>
+        <div id='puzzle2'></div>
+        <div class='container image-container'>
+            <img id='p2-answer' src='static/images/solved.png'>
+            <img id='p2-box' src="static/sprites/hand/closed.jpg">
+        </div>
+        <div class='container button-container'>
+            <div class='p2-flex-container'>
+                <div class='button' id='p2-btn0'>A</div>
+                <div class='button' id='p2-btn1'>A</div>
+                <div class='button' id='p2-btn2'>A</div>
+                <div class='button' id='p2-btn3'>A</div>
+                <div class='enter-button' id='p2-btnE'>E</div>
+            </div>
+
+        </div>
+
+        <div id='p3'></div>
+        <br><br>>
+        <hr>
+
+        <div id='puzzle3'></div>
+        <div class='container image-container'>
+            <img id='p3-answer' src='static/images/8.png'>
+            <img id='p3-box' src="static/sprites/box2_closed.jpg">
+        </div>
+        <div class='container button-container'>
+            <div class='p3-flex-container'>
+                <div class='button' id='p3-btn0'></div>
+                <div class='button' id='p3-btn1'></div>
+                <div class='button' id='p3-btn2'></div>
+                <div class='button' id='p3-btn3'></div>
+                <div class='enter-button' id='p3-btnE'>E</div>
+            </div>
+
+        </div>
+    <!--    <div id='p4'></div>
+        <br><br>>
+        <hr>
+        <div id='puzzle4'></div>
+        <div class='container image-container'>
+            <img id='p4-answer' src='static/images/solved.png'>
+            <img id='p4-box' src="static/sprites/box3_closed.jpg" width='400px' height='400px'>
+        </div>
+        <div class='container button-container'>
+            <div class='p4-flex-container'>
+                <div class='button' id='p4-btn0'>
+                    <img src='static/sprites/1.png'>
+                </div>
+                <div class='button' id='p4-btn1'>
+                    <img src='static/sprites/1.png'>
+                </div>
+                <div class='button' id='p4-btn2'>
+                    <img src='static/sprites/1.png'>
+                </div>
+                <div class='button' id='p4-btn3'>
+                    <img src='static/sprites/1.png'>
+                </div>
+                <div class='enter-button' id='p4-btnE'>E</div>
+            </div>
+
+        </div>-->
+        <div id='p5'></div>
+        <br><br>>
+        <hr>
+
+        <div id='puzzle5'></div>
+        <div class='container image-container'>
+            <img id='p5-answer' src='static/images/7.png'>
+            <img id='p5-box' src="static/sprites/hatch_closed.png">
+        </div>
+        <div class='container p5-button-container'>
+            <div class='p5-flex-container'>
+                <div class='grid-button' id='p5-btn0'></div>
+                <div class='grid-button' id='p5-btn1'></div>
+                <div class='grid-button' id='p5-btn2'></div>
+                <div class='grid-button' id='p5-btn3'></div>
+            </div>
+            <div class='p5-flex-container'>
+                <div class='grid-button' id='p5-btn4'></div>
+                <div class='grid-button' id='p5-btn5'></div>
+                <div class='grid-button' id='p5-btn6'></div>
+                <div class='grid-button' id='p5-btn7'></div>
+            </div>
+            <div class='p5-flex-container'>
+                <div class='grid-button' id='p5-btn8'></div>
+                <div class='grid-button' id='p5-btn9'></div>
+                <div class='grid-button' id='p5-btn10'></div>
+                <div class='grid-button' id='p5-btn11'></div>
+            </div>
+            <div class='p5-flex-container'>
+                <div class='grid-button' id='p5-btn12'></div>
+                <div class='grid-button' id='p5-btn13'></div>
+                <div class='grid-button' id='p5-btn14'></div>
+                <div class='grid-button' id='p5-btn15'></div>
+            </div>
+            <div class='p5-flex-container'>
+                <div><img src='static/images/4cols.png' height='50px' width='50px' style="margin-top: 20px;"></div>
+                <div class='enter-button' id='p5-btnE'>E</div>
+            </div>
+   
+
+        </div>
+        <div id='p6'></div>
+        <br><br>>
+        <hr>
+        <div id='puzzle6'></div>
+        <div class='container image-container'>
+            <img id='p6-answer' src='static/images/solved.png'>
+            <img id='p6-box' src="static/sprites/box4_closed.jpg" height='400px' width='400px'>
+        </div>
+        <div class='container button-container'>
+            <div class='p6-flex-container'>
+                <div class='button-small lr-button' id='p6-btn0'></div>
+                <div class='button lr-button' id='p6-btn1'></div>
+
+                <div class='enter-button' id='p6-btnE'>E</div>
+            </div>
+
+        </div>
+    <!--    <div id='p7'></div>
+        <br><br>>
+        <hr>
+
+        <div id='puzzle7'></div>
+        <div class='container image-container'>
+            <img id='p7-answer' src='static/images/solved.png'>
+            <img id='p7-box' src="static/sprites/box5_closed.jpg" height='400px' width='400px'>
+        </div>
+        <div class='container button-container'>
+            <div class='p7-flex-container'>
+                <div class='button' id='p7-btn0'>
+                    <img src='static/sprites/360.png'>
+                </div>
+                <div class='button' id='p7-btn1'>
+                    <img src='static/sprites/360.png'>
+                </div>
+                <div class='button' id='p7-btn2'>
+                    <img src='static/sprites/360.png'>
+                </div>
+                <div class='button' id='p7-btn3'>
+                    <img src='static/sprites/360.png'>
+                </div>
+                <div class='enter-button' id='p7-btnE'>E</div>
+            </div>
+
+        </div>-->
+        <div id='p8'></div>
+        <br><br>>
+        <hr>
+
+        <div id='puzzle8'></div>
+        <div class='container image-container'>
+            <img id='p8-answer' src='static/images/6.png'>
+            <img id='p8-box' src="static/sprites/box6_closed.jpg" height='350px' width='350px'>
+        </div>
+        <div class='container painting-container'>
+            <div id='p8-btn0'></div>
+            <div id='p8-btn1'></div>
+            <div id='p8-btn2'></div>
+            <div id='p8-btn3'></div>
+            <img id='painting' src='static/images/painting.jpg'>
+        </div>
+        <div id='p9'></div>
+        <br><br>>
+        <hr>
+
+    <!--    <div id='puzzle9'></div>
+        <div class='container image-container'>
+            <img id='p9-answer'src='static/images/solved.png'>
+            <img id='p9-box' src="static/sprites/closed.png">
+        </div>
+        <div class='container square-button-container'>
+            <div class='p9-flex-container'>
+                <div class='button square-button' id='p9-btn0'></div>
+                <div class='button square-button' id='p9-btn1'></div>
+            </div>
+            <div class='p9-flex-container'>
+                <div class='button square-button' id='p9-btn3'></div>
+                <div class='button square-button' id='p9-btn2'></div>
+            </div>
+            <div class='p9-flex-container p9-enter-flex-container'>
+                <div class='enter-button' id='p9-btnE'>E</div>
+            </div>
+
+        </div>-->
+        <hr>
+        
+ 
+
+
+
+        </div>
+        <br><br><br><br><br><br><br><br><br><br><br> 
+    </body>
+</html>

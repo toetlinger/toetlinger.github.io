@@ -1,0 +1,20 @@
+load video with no controls
+press button to start
+video plays
+multiple choice form shows to select either technique and stance or just technique of played video
+    5 choices, including the correct answer are selected at random from a list of all Korean techniques known up to this pattern
+    stances are a separate list from  rest of techniques
+select submit button
+if wrong, play wrong sound and keep track of number of wrong choices
+if correct, play correctsound and load and play the next video
+we need to keep track of which step we are on
+for any step we need to know:
+    -what the correct answer is
+    - do we have a stance and technique or just a technique
+after all steps have been completed, play completed sound
+determine score:
+    - quicker time gives higher score
+    - incorrect answers take away score
+    - maybe start with a number that counts down over time
+    - incorrect answers reduce that number
+write cookie to show players best times

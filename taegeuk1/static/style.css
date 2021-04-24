@@ -1,0 +1,44 @@
+.container {
+    margin: auto;
+    margin-top: 20px;
+
+}
+.container_video {
+    width: 500px;
+}
+
+.container_button {
+    width: 100px;
+}
+.container_form {
+    width: 400px;
+    height: 170px;
+}
+.container_game_over {
+    width: 500px;
+}
+#form1 {
+    float:left;
+}
+#form2 {
+    float:right;
+}
+
+#submit_div {
+    margin: auto;
+    width: 50px;
+}
+body {
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+}
+#title-div {
+    margin: auto;
+    width: 500px;
+}
+.button {
+    border-radius: 10px;
+    height: 25px;
+    background-color:rgb(50, 204, 178);
+    color: white;
+   
+}

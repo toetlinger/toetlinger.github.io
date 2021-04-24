@@ -2,23 +2,70 @@
 <html lang='en'>
     <head>
         <meta charset='utf-8'>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
         <title>Taegeuk 1 Game</title>
         <script src='static/taegeuk.js'></script>
         <link rel='stylesheet' href='static/style.css'>
     </head>
     <body>
-
-
-
-        <div class='container'>
-            <button id='playbutton'>
-                Press to play
+        <div id='title-div'>
+            <h3>Korean Practise Game - Taegeuk Il Jang</h1>
+            <h5 id='score_h5'>Score: <span id='score'></span></h5>
+        </div>
+        <div class='container container_button'>
+            <button class='button' id='startbutton'>
+                Start Game
             </button>
-            <video id='video' width="320" height="240" >
-                <source src="static/movie.mp4" type="video/mp4" autoplay>
+        </div>
+        
+
+        <div class='container container_video' >
+
+            <video id='video' width="500" height="300" >
+                <source id='video_source' src="static/movie.mp4" type="video/mp4" autoplay>
                 Your browser does not support the video tag.
             </video>
         </div> 
+        <div class='container container_form'>
+            <form id='form1' onsubmit='return false' hidden>
+                <h3>Technique</h3>
+                <input type="radio" id='input1_1' name="technique" value="1">
+                <label  id='label1_1'>One</label><br>
+                <input type="radio" id='input2_1' name="technique" value="2">
+                <label for="2" id='label2_1'>Two</label><br>
+                <input type="radio"  id='input3_1' name="technique" value="3">
+                <label for="3" id='label3_1'>Three</label><br>
+                <input type="radio"  id='input4_1' name="technique" value="4">
+                <label for="4" id='label4_1'>Four</label><br>
+                <input type="radio"  id='input5_1' name="technique" value="5">
+                <label for="5" id='label5_1'>Five</label><br><br>
+                
+             </form>
 
+             <form id='form2' onsubmit='return false' hidden>
+                <h3>Stance</h3>
+                <input type="radio" id='input1_2' name="stance" value="1">
+                <label  id='label1_2'>One</label><br>
+                <input type="radio" id='input2_2' name="stance" value="2">
+                <label for="2" id='label2_2'>Two</label><br>
+                <input type="radio"  id='input3_2' name="stance" value="3">
+                <label for="3" id='label3_2'>Three</label><br>
+                <input type="radio"  id='input4_2' name="stance" value="4">
+                <label for="4" id='label4_2'>Four</label><br>
+                <input type="radio"  id='input5_2' name="stance" value="5">
+                <label for="5" id='label5_2'>Five</label><br><br>
+                
+             </form>
+
+        </div>
+
+        <div id='submit_div'>
+            <button class='button' id='submitbutton'>Enter</button>
+        </div>
+        <div class='container container_game_over' hidden>
+            <h1 id='game_over' >GAME OVER!</h1>
+            <h1>Your Score is <span id='final_score'></span></h1>
+        </div>
     </body>
 </html>

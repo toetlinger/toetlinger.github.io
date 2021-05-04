@@ -11,11 +11,20 @@
     <body>
         <div id='title-div'>
             <h3>Korean Practise Game - Taegeuk Il Jang</h1>
-            <h5 id='score_h5'>Score: <span id='score'></span></h5>
+            <h4 id='score_h5' hidden>Score: <span id='score'></span></h4>
+            <div id="pointsProgress" hidden>
+                <div id="pointsBar"></div>
+            </div>
         </div>
-        <div class='container container_button'>
-            <button class='button' id='startbutton'>
-                Start Game
+        <div class='container container_button' id='start_btn_container'>
+            <button class='button' id='levelOne'>
+                Level One
+            </button>
+            <button class='button' id='levelTwo'>
+                Level Two
+            </button>
+            <button class='button' id='levelThree'>
+                Level Three
             </button>
         </div>
         
@@ -31,30 +40,30 @@
             <form id='form1' onsubmit='return false' hidden>
                 <h3>Technique</h3>
                 <input type="radio" id='input1_1' name="technique" value="1">
-                <label  id='label1_1'>One</label><br>
+                <label  id='label1_1'></label><br>
                 <input type="radio" id='input2_1' name="technique" value="2">
-                <label for="2" id='label2_1'>Two</label><br>
+                <label for="2" id='label2_1'></label><br>
                 <input type="radio"  id='input3_1' name="technique" value="3">
-                <label for="3" id='label3_1'>Three</label><br>
+                <label for="3" id='label3_1'></label><br>
                 <input type="radio"  id='input4_1' name="technique" value="4">
-                <label for="4" id='label4_1'>Four</label><br>
+                <label for="4" id='label4_1'></label><br>
                 <input type="radio"  id='input5_1' name="technique" value="5">
-                <label for="5" id='label5_1'>Five</label><br><br>
+                <label for="5" id='label5_1'></label><br><br>
                 
              </form>
 
              <form id='form2' onsubmit='return false' hidden>
                 <h3>Stance</h3>
                 <input type="radio" id='input1_2' name="stance" value="1">
-                <label  id='label1_2'>One</label><br>
+                <label  id='label1_2'></label><br>
                 <input type="radio" id='input2_2' name="stance" value="2">
-                <label for="2" id='label2_2'>Two</label><br>
+                <label for="2" id='label2_2'></label><br>
                 <input type="radio"  id='input3_2' name="stance" value="3">
-                <label for="3" id='label3_2'>Three</label><br>
+                <label for="3" id='label3_2'></label><br>
                 <input type="radio"  id='input4_2' name="stance" value="4">
-                <label for="4" id='label4_2'>Four</label><br>
+                <label for="4" id='label4_2'></label><br>
                 <input type="radio"  id='input5_2' name="stance" value="5">
-                <label for="5" id='label5_2'>Five</label><br><br>
+                <label for="5" id='label5_2'></label><br><br>
                 
              </form>
 

@@ -8,19 +8,58 @@ document.addEventListener('DOMContentLoaded', (event) => {
   step = 0;
   clips = ['0.mp4', '1.mp4','2.mp4','3.mp4','4.mp4','5.mp4','6.mp4','7.mp4','8.mp4','9.mp4','10.mp4','11.mp4', '12.mp4','13.mp4','14.mp4','15.mp4','16.mp4','17.mp4','18.mp4','19.mp4','20.mp4','21.mp4']
   wrong_guesses = 0;
-  score = 100;
+  score = 0;
+  number_of_choices = 5;
+  plus_points_init = 10;
+  plus_points = plus_points_init;
+  minus_points = 10;
+ 
 
   // event listeners
   document.querySelector('#submitbutton').addEventListener('click', submit_answer)
-  document.querySelector('#startbutton').addEventListener('click', startGame);
-  
+  document.querySelector('#levelOne').addEventListener('click', levelOne);
+  document.querySelector('#levelTwo').addEventListener('click', levelTwo);
+  document.querySelector('#levelThree').addEventListener('click', levelThree);
+
+  function levelOne() {
+    number_of_choices = 3
+
+    document.querySelector('#input4_1').style.visibility = 'hidden';
+    document.querySelector('#input4_1').style.visibility = 'hidden';
+    document.querySelector('#input4_2').style.visibility = 'hidden';
+    document.querySelector('#input4_2').style.visibility = 'hidden';
+    document.querySelector('#input5_1').style.visibility = 'hidden';
+    document.querySelector('#input5_1').style.visibility = 'hidden';
+    document.querySelector('#input5_2').style.visibility = 'hidden';
+    document.querySelector('#input5_2').style.visibility = 'hidden';
+    startGame();
+  }
+  function levelTwo() {
+    number_of_choices = 4
+
+    document.querySelector('#input5_1').style.visibility = 'hidden';
+    document.querySelector('#input5_1').style.visibility = 'hidden';
+    document.querySelector('#input5_2').style.visibility = 'hidden';
+    document.querySelector('#input5_2').style.visibility = 'hidden';
+
+    startGame();
+  }
+  function levelThree() {
+    number_of_choices = 5
+
+    var point_timer = setInterval(decrement_plus_points, 2000);
+    document.querySelector('#pointsProgress').hidden = false
+
+    startGame();
+  }
 
   function startGame() {
     var audio = new Audio('static/startup.mp3')
     audio.play()
     document.querySelector('#score').innerHTML = score;
     populate_answers()
-    document.querySelector('#startbutton').style.visibility = 'hidden';
+    document.querySelector('#start_btn_container').style.display = 'none';
+    document.querySelector('#score_h5').hidden = false;
     play_current_step();
 
   }
@@ -28,11 +67,21 @@ document.addEventListener('DOMContentLoaded', (event) => {
   function submit_answer() {
     correct = true
     if (steps[step][0] != null) {
-       if (techniques[steps[step][0]] != document.forms.form1.elements['technique'].value) {
+
+      if (document.forms.form1.elements['technique'].value == '') {
+        return; // if technique expected but not checked, return
+      }
+      if (techniques[steps[step][0]] != document.forms.form1.elements['technique'].value) {
         correct = false
       }
+
     }
+
     if (steps[step][1] != null) {
+      if(document.forms.form2.elements['stance'].value == '') {
+        return;
+      } // if stance expected but not checked, return
+
       if (techniques[steps[step][1]] != document.forms.form2.elements['stance'].value) {
         correct = false
       }
@@ -42,7 +91,13 @@ document.addEventListener('DOMContentLoaded', (event) => {
       blink('lightgreen')
       var audio = new Audio('static/correct.wav')
       audio.play()
+      score += plus_points;
+      wrong_guesses = 0;
+      document.querySelector('#score').innerHTML = score;
       step ++
+
+      
+
       if (step == steps.length) {
         console.log("Game Over")
         var audio = new Audio('static/woohoo.wav')
@@ -58,12 +113,32 @@ document.addEventListener('DOMContentLoaded', (event) => {
       var audio = new Audio('static/denied.wav');
       audio.play();
       wrong_guesses ++;
-      score -= 5;
-      document.querySelector('#score').innerHTML = score;
-      if (score <= 0) {
-        game_over()
-        
+
+      // highlight correct answer if two or more wrong answers and level 1
+
+      if (steps[step][0] != null && wrong_guesses >= 2 && number_of_choices == 3) { 
+        for (i=1; i <= number_of_choices; i++) {
+          if (document.querySelector('#label'+ i +'_1').innerHTML == techniques[steps[step][0]]) {
+            document.querySelector('#label'+ i +'_1').style.color = 'red'
+          }
+        }
       }
+      console.log("stance value" +steps[step][1])
+      if (steps[step][1] != null && wrong_guesses >= 2 && number_of_choices == 3) { 
+        for (i=1; i <= number_of_choices; i++) {
+          if (document.querySelector('#label'+ i +'_2').innerHTML == techniques[steps[step][1]]) {
+            document.querySelector('#label'+ i +'_2').style.color = 'red'
+          }
+        }
+
+      }
+ 
+      score -= minus_points;
+      
+      if (score < 0) {
+        score = 0;
+      }
+      document.querySelector('#score').innerHTML = score;
     }
   }
 
@@ -111,12 +186,12 @@ document.addEventListener('DOMContentLoaded', (event) => {
     } else {
       document.querySelector('#form2').hidden = true
     }
-    console.log('value: ' + document.forms.form2.elements['stance'].value)
+    //console.log('value: ' + document.forms.form2.elements['stance'].value)
 
     function fill_random_answers() {  
       // fill array with random and unique answers
       i = 1;
-      while (i < 5) {
+      while (i < number_of_choices) {
         item = random_item(techniques);
         if (!answers.includes(item)) {
           answers.push(item);
@@ -130,25 +205,28 @@ document.addEventListener('DOMContentLoaded', (event) => {
       
     function populate(form) {  
 
-      document.querySelector('#label1_' + form).innerHTML = answers_shuffled[0];
-      document.querySelector('#input1_' + form).value = answers_shuffled[0];
-      document.querySelector('#label2_' + form).innerHTML = answers_shuffled[1];
-      document.querySelector('#input2_' + form).value = answers_shuffled[1];
-      document.querySelector('#label3_' + form).innerHTML = answers_shuffled[2];
-      document.querySelector('#input3_' + form).value = answers_shuffled[2];
-      document.querySelector('#label4_' + form).innerHTML = answers_shuffled[3];
-      document.querySelector('#input4_' + form).value = answers_shuffled[3];
-      document.querySelector('#label5_' + form).innerHTML = answers_shuffled[4];
-      document.querySelector('#input5_' + form).value = answers_shuffled[4];
+      for (i = 0; i < number_of_choices; i++) {
+        document.querySelector('#label' + (i+1) + '_' + form).innerHTML = answers_shuffled[i];
+        document.querySelector('#input' + (i+1) + '_' + form).value = answers_shuffled[i];
+        document.querySelector('#input' + (i+1) + '_' + form).checked = false;
+        document.querySelector('#label' + (i+1) + '_' + form).style.color = 'black';
+      } 
+      plus_points = plus_points_init + 1;
 
-      ["input1_", "input2_", "input3_", "input4_", "input5_"].forEach(function(id) {
-        document.getElementById(id + form).checked = false;
-      });
+ 
     }
 
    }
     
+  function decrement_plus_points() {
+    plus_points -= 1;
+    if (plus_points < 0) {
+      plus_points = 0;
+    }
 
+    document.querySelector('#pointsBar').style.width = (plus_points * 10) + '%'
+    console.log('plus_points: ' + plus_points)
+  }
 
   function play_current_step() {
     var vid = document.getElementById('video')

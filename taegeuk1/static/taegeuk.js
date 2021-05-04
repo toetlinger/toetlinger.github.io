@@ -60,6 +60,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
     populate_answers()
     document.querySelector('#start_btn_container').style.display = 'none';
     document.querySelector('#score_h5').hidden = false;
+    document.querySelector('#submit_div').hidden = false;
     play_current_step();
 
   }
@@ -268,7 +269,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
    document.querySelector('#score_h5').style.display = 'none'
    document.querySelector('.container_game_over').hidden = false
    document.querySelector('#final_score').innerHTML = score
-
+   document.querySelector('#pointsProgress').hidden = true
    
   
       

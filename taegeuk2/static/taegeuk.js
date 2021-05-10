@@ -1,12 +1,12 @@
 document.addEventListener('DOMContentLoaded', (event) => {
 
   // lists and variables
-  /* Junbi Sogi 0, Juchoom Sogi 1, Ap Sogi 2, Ap Kubi 3, Are Makki 4, Montong Makki 5, Olgul Makki 6, Momtong Jireugi 7, Ap Chagi 8
+  /* Junbi Sogi 0, Juchoom Sogi 1, Ap Sogi 2, Ap Kubi 3, Are Makki 4, Montong Makki 5, Olgul Makki 6, Momtong Jireugi 7, Ap Chagi 8, Olgul Jireurgi 9
   */
-  techniques = ['Junbi Sogi', 'Juchoom Sogi', 'Ap Sogi', 'Ap Kubi','Arae Makki', 'Momtong Makki', 'Olgul Makki', 'Momtong Jireugi', 'Ap Chagi']
-  steps = [[null,0],[4,2],[7,2],[4,2],[7,2],[4,3],[7,null],[5,2],[7,2],[5,2],[7,2],[4,3],[7,null],[6,2],[8,null],[7,2],[6,2],[8,null],[7,2],[4,3],[7,3], [null,0]];
+  techniques = ['Junbi Sogi', 'Juchoom Sogi', 'Ap Sogi', 'Ap Kubi','Arae Makki', 'Momtong Makki', 'Olgul Makki', 'Momtong Jireugi', 'Ap Chagi', 'Olgul Jireugi']
+  steps = [[null,0],[4,2],[7,3],[4,2],[7,3],[5,2],[5,2],[4,2],[8,null],[9,3],[4,2],[8,null],[9,3],[6,2],[6,2],[5,2],[5,2],[4,2],[8,null],[7,2], [8,null],[7,2],[8,null],[7,2],[null,0]];
   step = 0;
-  clips = ['0.mp4', '1.mp4','2.mp4','3.mp4','4.mp4','5.mp4','6.mp4','7.mp4','8.mp4','9.mp4','10.mp4','11.mp4', '12.mp4','13.mp4','14.mp4','15.mp4','16.mp4','17.mp4','18.mp4','19.mp4','20.mp4','21.mp4']
+  clips = ['0.mp4', '1.mp4','2.mp4','3.mp4','4.mp4','5.mp4','6.mp4','7.mp4','8.mp4','8_2.mp4','9.mp4','10.mp4','10_2.mp4','11.mp4', '12.mp4','13.mp4','14.mp4','15.mp4','16.mp4','16_2.mp4','17.mp4','17_2.mp4','18.mp4','18_2.mp4','19.mp4']
   wrong_guesses = 0;
   score = 0;
   number_of_choices = 5;
